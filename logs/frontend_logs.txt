@@ -1,0 +1,20 @@
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 02:15:04
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+97
+---
+--------------------------------------------------
+
