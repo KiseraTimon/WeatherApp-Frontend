@@ -1,5 +1,5 @@
 export function handleError(error: unknown): void {
-  fetch("/api/log-error", {
+  fetch("api/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
