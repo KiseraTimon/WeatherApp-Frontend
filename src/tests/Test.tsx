@@ -1,4 +1,5 @@
 "use client";
+import { handleError } from "@/utils/clientlogger";
 import { useState } from "react";
 import styles from "./Test.module.css";
 
@@ -59,8 +60,13 @@ export default function TestWeather() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
-  // For Testing Simulation, Populate Accordingly
-  const API_KEY = "{OpenWeatherAPI}";
+  // Backend Endpoint
+  const LARAVEL_CONNECTOR =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8989/api";
+
+  // Debugging
+  console.log(`Process Env Returns: ${process.env}`);
+  console.log(`Laravel Connector Returns: ${LARAVEL_CONNECTOR}`);
 
   // Handling City Searching
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,25 +75,62 @@ export default function TestWeather() {
     setError("");
 
     try {
-      // Converting Cities to Coordinates
-      const geoRes = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
+      // Retrieving Coordinates Via Laravel Connection
+      const geoRes = await fetch(`${LARAVEL_CONNECTOR}/geocode?city=${city}`);
+
+      // Validating Location Existence
+      if (!geoRes.ok) throw new Error(`An error occured fetching ${city}`);
+      const geoData = await geoRes.json();
+
+      if (!Array.isArray(geoData) || geoData.length === 0) {
+        throw new Error(`${city} not found`);
+      }
+
+      // Retrieving Refined Weather Data Via Laravel Connection
+      const { lat, lon } = geoData[0];
+      const weatherRes = await fetch(
+        `${LARAVEL_CONNECTOR}/weather?lat=${lat}&lon=${lon}`
       );
-      const geoData: unknown[] = await geoRes.json();
+
+      // Validating The Extraction Success
+      if (!weatherRes.ok) throw new Error("Weather Data Unavailable");
+      const data: WeatherApiResponse = await weatherRes.json();
+
+      // Converting Cities to Coordinates
+      {
+        /*
+          const geoRes = await fetch(
+            `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
+          );
+          const geoData: unknown[] = await geoRes.json();
+        */
+      }
 
       // Validating Whether Location Exists
-      if (!Array.isArray(geoData) || geoData.length === 0) {
-        throw new Error("City not found");
+      {
+        /*
+          if (!Array.isArray(geoData) || geoData.length === 0) {
+            throw new Error("City not found");
+          }
+        */
       }
 
       // Extracting Coordinates (1st Result)
-      const { lat, lon } = geoData[0] as { lat: number; lon: number };
+      {
+        /*
+          const { lat, lon } = geoData[0] as { lat: number; lon: number };
+        */
+      }
 
       // Retrieving Weather Data
-      const weatherRes = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
-      );
-      const data: WeatherApiResponse = await weatherRes.json();
+      {
+        /*
+          const weatherRes = await fetch(
+            `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+          );
+          const data: WeatherApiResponse = await weatherRes.json();
+        */
+      }
 
       // Processing & Storing Weather Data
       setWeather({
@@ -97,6 +140,9 @@ export default function TestWeather() {
     } catch (err) {
       // Error Handling
       setError(err instanceof Error ? err.message : "Failed to fetch weather");
+
+      // Logging Error
+      handleError(new Error(String(err)));
     } finally {
       //Terminating Loading State
       setLoading(false);
