@@ -1,0 +1,113 @@
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Add heading classes */
+.heading2 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.heading3 {
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.button {
+    padding: 8px 16px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #dc3545;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}
+
+.weatherContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.currentWeather {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.weatherInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+}
+
+.forecastGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.forecastCard {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background-color: white;
+    text-align: center;
+}
+
+.forecastCard div {
+    margin: 5px 0;
+}
+
+.formLabel {
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+}
+
+.day {
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 20px;
+}
