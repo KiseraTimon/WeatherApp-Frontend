@@ -34,7 +34,7 @@ function extractError(err: Error): string {
     return `Type:\n${type}\n\nError Message:\n${msg}\n\nOrigin:\n${file}\n\nLine:\n${line}`;
 }
 
-export function handleError(err: Error, logger: string = 'nextjs_error_log.txt'): void {
+export function handleError(err: Error, logger: string = 'frontend_log.txt'): void {
     const logDir = path.resolve('./logs');
     if (!fs.existsSync(logDir)) fs.mkdirSync(logDir);
 
