@@ -1,6 +1,6 @@
 "use client";
 
-import { Droplet } from "lucide-react";
+import { Droplet, Gauge } from "lucide-react";
 import { JSX } from "react";
 
 // Type Definition
@@ -21,20 +21,29 @@ export default function HumidityCard(props: HumidityCardProps): JSX.Element {
   const scale = humidityScale(humidity);
 
   return (
-    <div className="card card-compact bg-base-100 shadow-md">
+    <div className="card card-compact bg-base-100 shadow-md justify-start">
       {/* Card Title */}
-      <div className="card-header flex items-center space-x-2">
-        <Droplet className="h-5 w-5 text-primary" />
-        <h3 className="card-title text-sm">Humidity</h3>
+      <div className="justify-start">
+        <h3 className="card-title text-sm text-purple-500">Humidity</h3>
       </div>
 
       {/* Values & Scale */}
       <div className="card-body p-4">
-        <p>
-          <strong>Value:</strong> {humidity}%
+        <p className="flex items-center space-x-10">
+          <Droplet className="h-4 w-4 text-yellow-500" />
+          <span className="text-green-500">
+            <strong className="text-red-500">Value:</strong>
+            <br />
+            {humidity}%
+          </span>
         </p>
-        <p>
-          <strong>Scale:</strong> {scale}
+        <p className="flex items-center space-x-10 text-pink-500">
+          <Gauge className="h-4 w-4 text-pink-500" />
+          <span className="text-pink-500">
+            <strong className="text-yellow-500">Scale:</strong>
+            <br />
+            {scale}
+          </span>
         </p>
       </div>
     </div>
