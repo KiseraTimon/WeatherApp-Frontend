@@ -193,7 +193,9 @@ export default function TestWeather() {
 
       {weather && (
         <div className={styles.heading2}>
-          <h2>Current Weather in {city}</h2>
+          <h2>
+            Current Weather in <b>{city}</b>
+          </h2>
           <div className={styles.currentWeather}>
             <label className={styles.formLabel}>Temperature (°C)</label>
             <input
