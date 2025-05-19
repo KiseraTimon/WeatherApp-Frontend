@@ -1,5 +1,7 @@
 "use client";
-import WeatherCard from "@/Components/WeatherCard/WeatherCard";
+import ForecastCard from "@/Components/Cards/ForecastCard";
+import HumidityCard from "@/Components/Cards/HumidityCard";
+import WindCard from "@/Components/Cards/WindCard";
 import { handleError } from "@/utils/clientlogger";
 import { useState } from "react";
 import styles from "./Test.module.css";
@@ -25,6 +27,7 @@ interface Main {
 // Maintaining Wind Data
 interface Wind {
   speed: number;
+  deg: number;
 }
 
 // Maintaining Individual Forecast Entries
@@ -246,7 +249,7 @@ export default function TestWeather() {
           </div>
 
           {/* Testing Weather Card */}
-          {weather && (
+          {/* {weather && (
             <>
               <WeatherCard
                 temp={weather.current.main.temp}
@@ -256,6 +259,32 @@ export default function TestWeather() {
                 icon={`https://openweathermap.org/img/wn/${weather.current.weather[0]?.icon}@2x.png`}
                 location={city}
               />
+            </>
+          )} */}
+
+          {/* Testing Separated Cards */}
+          {weather && (
+            <>
+              {/* Row 1: Forecast */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                {weather.forecast.map((day) => (
+                  <ForecastCard
+                    key={day.dt}
+                    date={new Date(day.dt * 1000).toLocaleDateString()}
+                    icon={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                    temp={day.main.temp}
+                  />
+                ))}
+              </div>
+
+              {/* Row 2: Current Stats */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <WindCard
+                  speed={weather.current.wind.speed}
+                  deg={weather.current.wind.deg}
+                />
+                <HumidityCard humidity={weather.current.main.humidity} />
+              </div>
             </>
           )}
         </div>
