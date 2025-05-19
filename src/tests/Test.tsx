@@ -1,4 +1,5 @@
 "use client";
+import WeatherCard from "@/Components/WeatherCard/WeatherCard";
 import { handleError } from "@/utils/clientlogger";
 import { useState } from "react";
 import styles from "./Test.module.css";
@@ -243,6 +244,20 @@ export default function TestWeather() {
               </div>
             ))}
           </div>
+
+          {/* Testing Weather Card */}
+          {weather && (
+            <>
+              <WeatherCard
+                temp={weather.current.main.temp}
+                humidity={weather.current.main.humidity}
+                windspd={weather.current.wind.speed}
+                description={weather.current.weather[0]?.description || ""}
+                icon={`https://openweathermap.org/img/wn/${weather.current.weather[0]?.icon}@2x.png`}
+                location={city}
+              />
+            </>
+          )}
         </div>
       )}
     </div>
