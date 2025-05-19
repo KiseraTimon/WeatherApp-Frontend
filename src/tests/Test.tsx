@@ -2,6 +2,7 @@
 import ForecastCard from "@/Components/Cards/ForecastCard";
 import HumidityCard from "@/Components/Cards/HumidityCard";
 import WindCard from "@/Components/Cards/WindCard";
+import NavBar from "@/Components/NavBar/NavBar";
 import { handleError } from "@/utils/clientlogger";
 import { useState } from "react";
 import styles from "./Test.module.css";
@@ -175,122 +176,131 @@ export default function TestWeather() {
 
   // Rendering UI
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="Enter city"
-          className={styles.input}
-        />
-        <button type="submit" disabled={loading} className={styles.button}>
-          {loading ? "Fetching..." : "Get Weather"}
-        </button>
-      </form>
+    <>
+      <NavBar
+        city={city}
+        loading={loading}
+        onCityChange={(e) => setCity(e.target.value)}
+        onSubmit={handleSubmit}
+      />
 
-      {error && <div className={styles.error}>{error}</div>}
+      <div className={styles.container}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="Enter city"
+            className={styles.input}
+          />
+          <button type="submit" disabled={loading} className={styles.button}>
+            {loading ? "Fetching..." : "Get Weather"}
+          </button>
+        </form>
 
-      {weather && (
-        <div className={styles.heading2}>
-          <h2>
-            Current Weather in <b>{city}</b>
-          </h2>
-          <div className={styles.currentWeather}>
-            <label className={styles.formLabel}>Temperature (°C)</label>
-            <input
-              readOnly
-              value={`${weather.current.main.temp}°C`}
-              className={styles.weatherInput}
-            />
-            <label className={styles.formLabel}>Humidity</label>
-            <input
-              readOnly
-              value={`${weather.current.main.humidity}%`}
-              className={styles.weatherInput}
-            />
+        {error && <div className={styles.error}>{error}</div>}
 
-            <label className={styles.formLabel}>Wind Speed</label>
-            <input
-              readOnly
-              value={`Wind: ${weather.current.wind.speed} m/s`}
-              className={styles.weatherInput}
-            />
-
-            <label className={styles.formLabel}>Description</label>
-            <input
-              readOnly
-              value={weather.current.weather[0]?.description}
-              className={styles.weatherInput}
-            />
-          </div>
-
-          <h3 className={styles.heading3}>3-Day Forecast</h3>
-          <div className={styles.forecastGrid}>
-            {weather.forecast.map((day, index) => (
-              <div key={day.dt} className={styles.forecastCard}>
-                <div>Day {index + 1}</div>
-                <hr></hr>
-                <div className={styles.day}>
-                  <b>Date:</b>
-                  <br></br>
-                  {new Date(day.dt * 1000).toLocaleDateString()}
-                </div>
-                <div className={styles.day}>
-                  <b>Temperature:</b>
-                  <br></br>
-                  {day.main.temp} <b>°C</b>
-                </div>
-                <div className={styles.day}>
-                  <b>Description:</b>
-                  <br></br>
-                  {day.weather[0]?.description}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Testing Weather Card */}
-          {/* {weather && (
-            <>
-              <WeatherCard
-                temp={weather.current.main.temp}
-                humidity={weather.current.main.humidity}
-                windspd={weather.current.wind.speed}
-                description={weather.current.weather[0]?.description || ""}
-                icon={`https://openweathermap.org/img/wn/${weather.current.weather[0]?.icon}@2x.png`}
-                location={city}
+        {weather && (
+          <div className={styles.heading2}>
+            <h2>
+              Current Weather in <b>{city}</b>
+            </h2>
+            <div className={styles.currentWeather}>
+              <label className={styles.formLabel}>Temperature (°C)</label>
+              <input
+                readOnly
+                value={`${weather.current.main.temp}°C`}
+                className={styles.weatherInput}
               />
-            </>
-          )} */}
+              <label className={styles.formLabel}>Humidity</label>
+              <input
+                readOnly
+                value={`${weather.current.main.humidity}%`}
+                className={styles.weatherInput}
+              />
 
-          {/* Testing Separated Cards */}
-          {weather && (
-            <>
-              {/* Row 1: Forecast */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                {weather.forecast.map((day) => (
-                  <ForecastCard
-                    key={day.dt}
-                    date={new Date(day.dt * 1000).toLocaleDateString()}
-                    weatherId={day.weather[0].id}
-                    temp={day.main.temp}
-                  />
-                ))}
-              </div>
+              <label className={styles.formLabel}>Wind Speed</label>
+              <input
+                readOnly
+                value={`Wind: ${weather.current.wind.speed} m/s`}
+                className={styles.weatherInput}
+              />
 
-              {/* Row 2: Current Stats */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                <WindCard
-                  speed={weather.current.wind.speed}
-                  deg={weather.current.wind.deg}
+              <label className={styles.formLabel}>Description</label>
+              <input
+                readOnly
+                value={weather.current.weather[0]?.description}
+                className={styles.weatherInput}
+              />
+            </div>
+
+            <h3 className={styles.heading3}>3-Day Forecast</h3>
+            <div className={styles.forecastGrid}>
+              {weather.forecast.map((day, index) => (
+                <div key={day.dt} className={styles.forecastCard}>
+                  <div>Day {index + 1}</div>
+                  <hr></hr>
+                  <div className={styles.day}>
+                    <b>Date:</b>
+                    <br></br>
+                    {new Date(day.dt * 1000).toLocaleDateString()}
+                  </div>
+                  <div className={styles.day}>
+                    <b>Temperature:</b>
+                    <br></br>
+                    {day.main.temp} <b>°C</b>
+                  </div>
+                  <div className={styles.day}>
+                    <b>Description:</b>
+                    <br></br>
+                    {day.weather[0]?.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Testing Weather Card */}
+            {/* {weather && (
+              <>
+                <WeatherCard
+                  temp={weather.current.main.temp}
+                  humidity={weather.current.main.humidity}
+                  windspd={weather.current.wind.speed}
+                  description={weather.current.weather[0]?.description || ""}
+                  icon={`https://openweathermap.org/img/wn/${weather.current.weather[0]?.icon}@2x.png`}
+                  location={city}
                 />
-                <HumidityCard humidity={weather.current.main.humidity} />
-              </div>
-            </>
-          )}
-        </div>
-      )}
-    </div>
+              </>
+            )} */}
+
+            {/* Testing Separated Cards */}
+            {weather && (
+              <>
+                {/* Row 1: Forecast */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                  {weather.forecast.map((day) => (
+                    <ForecastCard
+                      key={day.dt}
+                      date={new Date(day.dt * 1000).toLocaleDateString()}
+                      weatherId={day.weather[0].id}
+                      temp={day.main.temp}
+                    />
+                  ))}
+                </div>
+
+                {/* Row 2: Current Stats */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                  <WindCard
+                    speed={weather.current.wind.speed}
+                    deg={weather.current.wind.deg}
+                  />
+                  <HumidityCard humidity={weather.current.main.humidity} />
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
