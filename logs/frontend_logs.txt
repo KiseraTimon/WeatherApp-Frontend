@@ -18,3 +18,183 @@ Line:
 ---
 --------------------------------------------------
 
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 02:19:34
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+97
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 02:23:13
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+94
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 03:10:08
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+94
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 03:15:22
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 04:05:19
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+TypeError: Failed to fetch
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 04:06:23
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+TypeError: Failed to fetch
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 04:37:07
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 04:37:30
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 04:39:31
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: An error occured fetching Nairobi
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+98
+---
+--------------------------------------------------
+
