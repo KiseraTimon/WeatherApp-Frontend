@@ -15,7 +15,7 @@ import styles from "./Test.module.css";
 // Maintaining Weather Description
 interface Weather {
   description: string;
-  icon: string;
+  id: number;
 }
 
 // Maintaining Weather Metrics
@@ -271,7 +271,7 @@ export default function TestWeather() {
                   <ForecastCard
                     key={day.dt}
                     date={new Date(day.dt * 1000).toLocaleDateString()}
-                    icon={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                    weatherId={day.weather[0].id}
                     temp={day.main.temp}
                   />
                 ))}

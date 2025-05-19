@@ -1,17 +1,18 @@
 "use client";
 
+import { GetWeatherIcon } from "@/assets/GetWeatherIcon";
 import { Calendar, Thermometer } from "lucide-react";
 import { JSX } from "react";
 
 // Type Definiton
 interface ForecastCardProps {
   date: string;
-  icon: string;
+  weatherId: number;
   temp: number;
 }
 
 export default function ForecastCard(props: ForecastCardProps): JSX.Element {
-  const { date, icon, temp } = props;
+  const { date, weatherId, temp } = props;
 
   // Rendering Forecast Card
   return (
@@ -24,7 +25,9 @@ export default function ForecastCard(props: ForecastCardProps): JSX.Element {
 
       {/* Icon */}
       <figure className="h-20 flex items-center justify-center">
-        <img src={icon} alt="weather icon" className="h-full" />
+        {GetWeatherIcon(weatherId, {
+          className: "h-12 w-12 text-primary",
+        })}
       </figure>
 
       {/* Temp Footer */}
