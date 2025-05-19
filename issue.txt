@@ -1,0 +1,6 @@
+Issue: frontend commit #10
+
+- The test.tsx is returned to it's original format
+- In my current code exec, Laravel recognizes API requests, but does not take care of them
+- In order to continue with the project, the backend will remain frozen
+- API logic will be temporarily implemented in the frontend
