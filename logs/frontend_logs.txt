@@ -198,3 +198,83 @@ Line:
 ---
 --------------------------------------------------
 
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+19/05/2025 19:49:28
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+Error: City not found
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+114
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+21/05/2025 16:13:41
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+TypeError: Failed to fetch
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+114
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+21/05/2025 16:14:45
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+TypeError: Failed to fetch
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+114
+---
+--------------------------------------------------
+
+***
+--------------------------------------------------
+TIME OF OCCURENCE:---
+21/05/2025 16:31:01
+
+ERROR DETAILS:---
+Type:
+Error
+
+Error Message:
+TypeError: Failed to fetch
+
+Origin:
+webpack-internal:///(app-pages-browser)/./src/tests/Test.tsx
+
+Line:
+114
+---
+--------------------------------------------------
+
