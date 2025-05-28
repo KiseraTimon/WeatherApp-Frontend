@@ -96,6 +96,7 @@ By the end of the installation, your frontend directory should look like this:
 ├──├── Pages/        # Custom made folder holding Context API for global state management
 ├──├── tests/        # Testing environment before implementing features
 ├──├── utils/        # Utility file holding reused functions like error handling logic and terminal message formats
+|-- .env.local       # Custom constants file
 ├── .gitignore       # Git ignore file
 |-- eslint.config.mjs# ESLint Configurations
 |-- issue.txt        # Contains app issue details up to the latest commit
@@ -139,7 +140,8 @@ The retrieved entries would then function populate certain API parameters to get
 
 ## Assets
 
-`env.local` file
+`.env.local` file
+Publish this within your root directory
 
 ```t
 NEXT_PUBLIC_API_TIMEOUT = 5000                                              # Timer for API requests
